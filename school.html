@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guess the number</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+
+        #game-container {
+            margin-top: 50px;
+        }
+
+        button {
+            background-color: rgba(255, 255, 0, 0.752);
+            border-radius: 20px;
+            font-size: 16px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        input{
+            padding: 10px;
+            border-color: yellow;
+        }
+        input:hover{
+            border-bottom: 10px solid;
+            border-bottom-color: yellow;
+            transition: 0.4s;
+        }
+        p{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        h1{
+            color: red;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div id="game-container">
+        <h1>Guess the Number Game</h1>
+        <p>qiyaas number udhaxeya  1 ila 10:</p>
+        <input type="number" id="user-input">
+        <button onclick="checkGuess()">play</button>
+        <p id="result"></p>
+        <button onclick="resetGame()">Reset Game</button>
+    </div>
+
+    <script>
+        // Generate a random number between 1 and 10
+        var secretNumber = Math.floor(Math.random() * 10) + 1;
+
+        function checkGuess() {
+            // Get the user's guess from the input field
+            var userGuess = document.getElementById("user-input").value;
+
+            // Check if the guess is correct
+            if (userGuess == secretNumber) {
+                document.getElementById("result").innerHTML = "guul, wad qiyastay";
+            } else {
+                document.getElementById("result").innerHTML = "qasaaro wad qaladay!";
+            }
+            
+        }
+
+        function resetGame() {
+            // Reset the game by generating a new random number and clearing the result message
+            secretNumber = Math.floor(Math.random() * 10) + 1;
+            document.getElementById("result").innerHTML = "";
+            document.getElementById("user-input").value = "";
+        }
+    </script>
+
+</body>
+</html>
